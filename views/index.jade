@@ -1,0 +1,32 @@
+extends map
+
+block content
+
+  a#left-menu.btnOver(href='#content-menu') >
+  
+  
+  #map1.map-fs
+  
+
+  script.
+    let mymap = L.map('map1').setView([51.505, -0.09], 13);
+    L.tileLayer.provider('OpenStreetMap.HOT').addTo(mymap);
+    
+    $(document).ready(function(){
+      let menuClosed = true
+      $('#left-menu').sidr({
+        name: 'sidr-left',
+        side: 'left',
+        source : window.location.href+'./menuContent.html'
+      });
+      $('#left-menu').click(()=>{
+        if(menuClosed){
+          $('#left-menu').text('<')
+          menuClosed = false
+        }else{
+          $('#left-menu').text('>')
+          menuClosed = true
+        }
+        
+      })
+    });
