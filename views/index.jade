@@ -9,7 +9,7 @@ block content
   
 
   script.
-    let mymap = L.map('map1').setView([51.505, -0.09], 13);
+    let mymap = L.map('map1').locate({setView: true, maxZoom: 20});
     L.tileLayer.provider('OpenStreetMap.HOT').addTo(mymap);
     
     $(document).ready(function(){
@@ -29,4 +29,20 @@ block content
         }
         
       })
+      mymap.on('locationfound', onLocationFound);
+      mymap.on('locationerror', onLocationError);
+      
     });
+    
+    function onLocationFound(e) {
+      var radius = e.accuracy / 2;
+      L.circle(e.latlng,{
+        color: '#8585ad',
+        fillColor: '#8585ad',
+        fillOpacity: 0.5,
+        radius: radius
+      }).addTo(mymap);
+    }
+    function onLocationError(e) {
+      alert(e.message);
+    }
