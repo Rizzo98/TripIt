@@ -1,7 +1,33 @@
 <nav class="nav">
     <ul class="list-group">
-        <li class="list-group-item"> <button type="button" class="btn btn-default" id="addMarker"> <span class="glyphicon glyphicon-map-marker"></span> </button> </li>
+        <li class="list-group-item" id="newTrip"> <button type="button" class="btn btn-default" data-toggle="modal" data-target="#myModal">New Trip</button></li>
     </ul>
 </nav>
 
-<script src='./javascripts/addMarker.js'></script>
+<script src='./javascripts/newTrip.js'></script>
+
+
+
+
+<!-- New Trip popup -->
+<div id="myModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-body">
+
+        <div class="form-group">
+          <label for="usr">Trip Name</label>
+          <input type="text" class="form-control" id="name">
+        </div>
+
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+  </div>
+</div>
