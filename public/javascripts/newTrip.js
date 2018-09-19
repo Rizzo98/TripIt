@@ -1,5 +1,9 @@
 $(document).ready(function(){
-  $('#newTrip').click(()=>{
-    $.colorbox({href:'../newTrip.html',opacity:0.5});
+
+  $('#newMarker').click(()=>{
+    $('#myModal').modal('toggle')
+    $("#myModal").attr('addMarker',true)
+    $("#map1").css('cursor','pointer')
   })
+
 })
