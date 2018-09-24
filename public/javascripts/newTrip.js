@@ -1,9 +1,13 @@
 $(document).ready(function(){
 
   $('#newMarker').click(()=>{
-    $('#myModal').modal('toggle')
-    $("#myModal").attr('addMarker',true)
+    $('#newTripModal').modal('toggle')
+    $("#newTrip").attr('addMarker',true)
     $("#map1").css('cursor','pointer')
+  })
+
+  $('#confirmMarker').click(()=>{
+    $('#newTripModal').modal('show')
   })
 
 })
