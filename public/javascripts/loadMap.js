@@ -9,9 +9,9 @@ mymap.on('click', function(e) {
 
     $("#newTrip").attr('addMarker',false)
     $("#map1").css('cursor','')
-    $("#markerList").append('<li class="addMarkerli">lat: '+ e.latlng.lat + ' lng: ' + e.latlng.lng +' </li>')
+    $('#newMarkerModal').attr('lat',e.latlng.lat)
+    $('#newMarkerModal').attr('lng',e.latlng.lng)
     $('#newMarkerModal').modal('show')
-
     //load images in new marker
     $('#pic1').change(()=>{loadPic($('#pic1')[0],'img1')})
     $('#pic2').change(()=>{loadPic($('#pic2')[0],'img2')})
@@ -23,12 +23,12 @@ mymap.on('click', function(e) {
 });
 
 function loadPic(input,imgId){
-  console.log(input)
   if (input.files && input.files[0]) {
     var reader = new FileReader();
 
     reader.onload = function (e) {
         $('#'+imgId).attr('src', e.target.result);
+        
     }
 
     reader.readAsDataURL(input.files[0]);
